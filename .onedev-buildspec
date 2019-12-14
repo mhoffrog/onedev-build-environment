@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<io.onedev.server.buildspec.BuildSpec revision="0">
+    <jobs>
+        <io.onedev.server.buildspec.job.Job>
+            <name>Release</name>
+            <paramSpecs/>
+            <image>docker:19.03.5</image>
+            <commands>
+                <string>set -e</string>
+                <string>version=1.0</string>
+                <string>docker build -t 1dev/server-build-environment:$version .</string>
+                <string>docker login -u robinshen -p @secrets.dockerhub-password@</string>
+                <string>docker push 1dev/server-build-environment:$version</string>
+            </commands>
+            <retrieveSource>true</retrieveSource>
+            <submoduleCredentials/>
+            <jobDependencies/>
+            <projectDependencies/>
+            <services/>
+            <reports/>
+            <triggers>
+                <io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger>
+                    <params/>
+                </io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger>
+            </triggers>
+            <caches/>
+            <cpuRequirement>250m</cpuRequirement>
+            <memoryRequirement>128m</memoryRequirement>
+            <timeout>3600</timeout>
+            <postBuildActions/>
+            <retryCondition>never</retryCondition>
+            <maxRetries>3</maxRetries>
+            <retryDelay>30</retryDelay>
+        </io.onedev.server.buildspec.job.Job>
+    </jobs>
+</io.onedev.server.buildspec.BuildSpec>
