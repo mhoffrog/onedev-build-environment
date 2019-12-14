@@ -9,9 +9,9 @@
             <commands>
                 <string>set -e</string>
                 <string>version=1.0</string>
-                <string>docker build -t 1dev/server-build-environment:$version .</string>
+                <string>docker build -t 1dev/build-environment:$version .</string>
                 <string>docker login -u robinshen -p @secrets:dockerhub-password@</string>
-                <string>docker push 1dev/server-build-environment:$version</string>
+                <string>docker push 1dev/build-environment:$version</string>
             </commands>
             <retrieveSource>true</retrieveSource>
             <submoduleCredentials/>
